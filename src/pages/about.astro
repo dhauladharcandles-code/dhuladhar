@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About Us - Dhauladhar Candles">
+	<Header />
+	
+	<section class="py-12 md:py-24 bg-white">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h1 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-8 text-center">
+				Our Story
+			</h1>
+			
+			<div class="prose prose-lg max-w-none">
+				<div class="aspect-video bg-gray-100 rounded-lg mb-8 overflow-hidden">
+					<img 
+						src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=1200&h=600&fit=crop" 
+						alt="Our workshop"
+						class="w-full h-full object-cover"
+					/>
+				</div>
+				
+				<p class="text-lg text-gray-700 mb-6 leading-relaxed">
+					Inspired by the serene beauty of the Dhauladhar mountain range, we began our journey 
+					with a simple mission: to create candles that bring the tranquility and natural essence 
+					of the Himalayas into your home.
+				</p>
+				
+				<p class="text-lg text-gray-700 mb-6 leading-relaxed">
+					Each candle is handcrafted with care using 100% natural soy wax and premium essential 
+					oils. We believe in sustainable practices and eco-friendly packaging, ensuring that 
+					our products not only enhance your living space but also respect our planet.
+				</p>
+				
+				<p class="text-lg text-gray-700 mb-6 leading-relaxed">
+					Our collection features carefully curated scents that range from calming lavender to 
+					invigorating eucalyptus, each designed to create a specific mood and atmosphere. 
+					Whether you're looking to relax after a long day or create a cozy ambiance for 
+					special moments, we have the perfect candle for you.
+				</p>
+				
+				<h2 class="text-3xl font-serif font-bold text-gray-900 mt-12 mb-6">
+					Our Values
+				</h2>
+				
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+					<div class="text-center">
+						<div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 002 2 2 2 0 002-2v-1a2 2 0 012-2h1.945M11 20v-1a2 2 0 00-2-2H9a2 2 0 00-2 2v1m8 0h2m-2 0v-1a2 2 0 00-2-2h-2a2 2 0 00-2 2v1" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-semibold text-gray-900 mb-2">Sustainability</h3>
+						<p class="text-gray-600">Eco-friendly materials and practices</p>
+					</div>
+					
+					<div class="text-center">
+						<div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-semibold text-gray-900 mb-2">Quality</h3>
+						<p class="text-gray-600">Premium ingredients and craftsmanship</p>
+					</div>
+					
+					<div class="text-center">
+						<div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-semibold text-gray-900 mb-2">Passion</h3>
+						<p class="text-gray-600">Made with love and attention to detail</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<Footer />
+</Layout>
+

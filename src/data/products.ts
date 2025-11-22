@@ -1,0 +1,138 @@
+export interface Product {
+	id: string;
+	name: string;
+	description: string;
+	price: number;
+	image: string;
+	category: string;
+	featured?: boolean;
+}
+
+export const products: Product[] = [
+	{
+		id: '1',
+		name: 'Seashell Serenity',
+		description: 'A decorative candle in a beautiful white conch-shell holder, featuring creamy wax with gold glitter, green flecks, and colorful gemstones. Perfect for adding a touch of coastal elegance to your space.',
+		price: 34.99,
+		image: '/images/products/seashell-candle.jpg',
+		category: 'Decorative',
+		featured: true,
+	},
+	{
+		id: '2',
+		name: 'Tulip Bouquet',
+		description: 'A stunning candle sculpted to resemble a vibrant bouquet of pink tulips. This handcrafted piece features numerous individual tulip buds in bright fuchsia pink, creating a beautiful floral centerpiece.',
+		price: 39.99,
+		image: '/images/products/tulip-bouquet-candle.jpg',
+		category: 'Floral',
+		featured: true,
+	},
+	{
+		id: '3',
+		name: 'Ocean Layers',
+		description: 'A two-layered candle in a clear glass container featuring vibrant blue wax with darker blue berry-like inclusions on top, and a creamy off-white base. Creates a serene, oceanic ambiance.',
+		price: 28.99,
+		image: '/images/products/ocean-layers-candle.jpg',
+		category: 'Aromatherapy',
+		featured: true,
+	},
+	{
+		id: '4',
+		name: 'Dessert Delight',
+		description: 'A warm, inviting candle in a patterned ceramic bowl with orange and yellow gradient wax. Decorated with red chocolate bar pieces and coffee bean accents, sprinkled with golden glitter and green specks.',
+		price: 32.99,
+		image: '/images/products/dessert-delight-candle.jpg',
+		category: 'Gourmet',
+		featured: false,
+	},
+	{
+		id: '5',
+		name: 'Floral Pearl Garden',
+		description: 'An elegant multi-wick candle with a scalloped edge, featuring intricate white floral clusters and daisy-like flowers. Adorned with lustrous pearl beads, creating a luxurious and sophisticated centerpiece.',
+		price: 45.99,
+		image: '/images/products/floral-pearl-candle.jpg',
+		category: 'Luxury',
+		featured: true,
+	},
+	{
+		id: '6',
+		name: 'Pink Hearts',
+		description: 'A delicate light pink, milky candle in a clear glass container. Embedded with darker pink heart-shaped motifs, creating a romantic and sweet ambiance perfect for special moments.',
+		price: 24.99,
+		image: '/images/products/pink-hearts-candle.jpg',
+		category: 'Romantic',
+		featured: false,
+	},
+	{
+		id: '7',
+		name: 'Rose Embossed',
+		description: 'A soft blush pink candle with an intricately textured surface covered in embossed roses. This elegant piece brings a touch of vintage romance to any room.',
+		price: 26.99,
+		image: '/images/products/rose-embossed-candle.jpg',
+		category: 'Floral',
+		featured: false,
+	},
+	{
+		id: '8',
+		name: 'Citrus Burst',
+		description: 'A vibrant orange candle with a unique textured surface resembling a cluster of small spheres. This eye-catching design brings energy and warmth to your space.',
+		price: 27.99,
+		image: '/images/products/citrus-burst-candle.jpg',
+		category: 'Fresh',
+		featured: false,
+	},
+	{
+		id: '9',
+		name: 'Winter Forest',
+		description: 'A decorative snowflake-shaped candle featuring a rich forest green top with embossed evergreen tree designs and a creamy off-white base. Perfect for creating a cozy winter atmosphere.',
+		price: 31.99,
+		image: '/images/products/winter-forest-candle.jpg',
+		category: 'Seasonal',
+		featured: false,
+	},
+	{
+		id: '10',
+		name: 'Blueberry Bliss',
+		description: 'A vibrant royal blue candle in a clear glass bowl, designed to resemble a dessert. Features darker blue berry-like wax pieces embedded throughout, creating a fresh and fruity aesthetic.',
+		price: 29.99,
+		image: '/images/products/blueberry-bliss-candle.jpg',
+		category: 'Gourmet',
+		featured: false,
+	},
+	{
+		id: '11',
+		name: 'Rose Petal Elegance',
+		description: 'A white candle in a clear glass jar, beautifully decorated with dried red rose petals and small white pearl beads on the surface. Creates a romantic and elegant atmosphere.',
+		price: 28.99,
+		image: '/images/products/rose-petal-candle.jpg',
+		category: 'Romantic',
+		featured: true,
+	},
+	{
+		id: '12',
+		name: 'Lavender Fields',
+		description: 'An elaborate oval candle in a dark wooden bowl, filled with intricately sculpted lavender and purple wax roses. Features clusters of cream-colored chrysanthemum flowers at the ends.',
+		price: 48.99,
+		image: '/images/products/lavender-fields-candle.jpg',
+		category: 'Floral',
+		featured: true,
+	},
+	{
+		id: '13',
+		name: 'Matcha Serenity',
+		description: 'A layered candle in a clear glass tumbler with pale green matcha-like wax on top and creamy white base. Decorated with translucent green ice-like chunks, creating a calming, zen-like ambiance.',
+		price: 30.99,
+		image: '/images/products/matcha-serenity-candle.jpg',
+		category: 'Wellness',
+		featured: false,
+	},
+	{
+		id: '14',
+		name: 'Purple Dreams',
+		description: 'A beautiful two-toned candle with a solid white base and translucent purple top layer. Adorned with small dried pink floral elements, perfect for creating a dreamy, peaceful atmosphere.',
+		price: 27.99,
+		image: '/images/products/purple-dreams-candle.jpg',
+		category: 'Aromatherapy',
+		featured: false,
+	},
+];

@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { products } from '../../data/products';
+
+const { id } = Astro.params;
+const product = products.find(p => p.id === id);
+
+if (!product) {
+	return Astro.redirect('/shop');
+}
+---
+
+<Layout title={`${product.name} - Dhauladhar Candles`}>
+	<Header />
+	
+	<section class="py-12 md:py-16 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<a href="/shop" class="text-gray-600 hover:text-gray-900 mb-6 inline-block">
+				← Back to Shop
+			</a>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+				<!-- Product Image -->
+				<div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
+					<img 
+						src={product.image} 
+						alt={product.name}
+						class="w-full h-full object-cover"
+					/>
+				</div>
+				
+				<!-- Product Details -->
+				<div>
+					<h1 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
+						{product.name}
+					</h1>
+					<p class="text-3xl font-bold text-gray-900 mb-6">
+						${product.price.toFixed(2)}
+					</p>
+					
+					<div class="mb-6">
+						<span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+							{product.category}
+						</span>
+					</div>
+					
+					<p class="text-lg text-gray-600 mb-8 leading-relaxed">
+						{product.description}
+					</p>
+					
+					<div class="mb-8">
+						<h3 class="text-sm font-semibold text-gray-900 mb-2">Product Details</h3>
+						<ul class="text-sm text-gray-600 space-y-2">
+							<li>• 100% Natural Soy Wax</li>
+							<li>• Premium Essential Oils</li>
+							<li>• Up to 60 Hours Burn Time</li>
+							<li>• Handcrafted with Care</li>
+							<li>• Eco-Friendly Packaging</li>
+						</ul>
+					</div>
+					
+					<div class="flex items-center space-x-4 mb-6">
+						<label for="quantity" class="text-sm font-medium text-gray-900">Quantity:</label>
+						<input 
+							type="number" 
+							id="quantity" 
+							min="1" 
+							value="1" 
+							class="w-20 px-3 py-2 border border-gray-300 rounded-md text-center"
+						/>
+					</div>
+					
+					<button 
+						id="add-to-cart"
+						data-product-id={product.id}
+						data-product-name={product.name}
+						data-product-price={product.price}
+						data-product-image={product.image}
+						class="w-full bg-gray-900 text-white px-8 py-4 rounded-md font-medium hover:bg-gray-800 transition-colors mb-4"
+					>
+						Add to Cart
+					</button>
+					
+					<button class="w-full border-2 border-gray-900 text-gray-900 px-8 py-4 rounded-md font-medium hover:bg-gray-900 hover:text-white transition-colors">
+						Buy Now
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Related Products -->
+	<section class="py-12 md:py-16 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">You May Also Like</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+				{products.filter(p => p.id !== product.id).slice(0, 3).map((relatedProduct) => (
+					<a href={`/products/${relatedProduct.id}`} class="group">
+						<div class="relative overflow-hidden bg-gray-100 rounded-lg aspect-square mb-4">
+							<img 
+								src={relatedProduct.image} 
+								alt={relatedProduct.name}
+								class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+							/>
+						</div>
+						<h3 class="text-lg font-semibold text-gray-900 mb-1">{relatedProduct.name}</h3>
+						<p class="text-lg font-bold text-gray-900">${relatedProduct.price.toFixed(2)}</p>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+	
+	<Footer />
+</Layout>
+
+<script>
+	const addToCartButton = document.getElementById('add-to-cart');
+	const quantityInput = document.getElementById('quantity') as HTMLInputElement;
+	
+	if (addToCartButton && quantityInput) {
+		addToCartButton.addEventListener('click', () => {
+			const productId = addToCartButton.getAttribute('data-product-id');
+			const productName = addToCartButton.getAttribute('data-product-name');
+			const productPrice = parseFloat(addToCartButton.getAttribute('data-product-price') || '0');
+			const productImage = addToCartButton.getAttribute('data-product-image');
+			const quantity = parseInt(quantityInput.value) || 1;
+			
+			// Get existing cart
+			const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+			
+			// Check if product already in cart
+			const existingItem = cart.find((item: any) => item.id === productId);
+			
+			if (existingItem) {
+				existingItem.quantity += quantity;
+			} else {
+				cart.push({
+					id: productId,
+					name: productName,
+					price: productPrice,
+					image: productImage,
+					quantity: quantity,
+				});
+			}
+			
+			// Save to localStorage
+			localStorage.setItem('cart', JSON.stringify(cart));
+			
+			// Dispatch event to update cart count
+			window.dispatchEvent(new Event('cartUpdated'));
+			
+			// Show feedback
+			const originalText = addToCartButton.textContent;
+			addToCartButton.textContent = 'Added to Cart!';
+			addToCartButton.classList.add('bg-green-600');
+			setTimeout(() => {
+				addToCartButton.textContent = originalText;
+				addToCartButton.classList.remove('bg-green-600');
+			}, 2000);
+		});
+	}
+</script>
+
