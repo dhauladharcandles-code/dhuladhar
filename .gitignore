@@ -1,4 +1,4 @@
-# build output
+git branch# build output
 dist/
 # generated types
 .astro/
