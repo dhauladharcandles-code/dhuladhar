@@ -4,12 +4,14 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { products } from '../../data/products';
 
-const { id } = Astro.params;
-const product = products.find(p => p.id === id);
-
-if (!product) {
-	return Astro.redirect('/shop');
+export function getStaticPaths() {
+	return products.map((product) => ({
+		params: { id: product.id },
+		props: { product },
+	}));
 }
+
+const { product } = Astro.props;
 ---
 
 <Layout title={`${product.name} - Dhauladhar Candles`}>
